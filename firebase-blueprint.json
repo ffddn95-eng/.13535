@@ -1,0 +1,32 @@
+{
+  "entities": {
+    "Analysis": {
+      "title": "Analysis",
+      "description": "An AI generation analysis report of an idea.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID of the creator"
+        },
+        "idea": {
+          "type": "string"
+        },
+        "analysisResult": {
+          "type": "object"
+        },
+        "createdAt": {
+          "type": "number",
+          "description": "Timestamp"
+        }
+      },
+      "required": ["userId", "idea", "analysisResult", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/analyses/{analysisId}": {
+      "schema": { "$ref": "#/entities/Analysis" },
+      "description": "User's analyses"
+    }
+  }
+}
